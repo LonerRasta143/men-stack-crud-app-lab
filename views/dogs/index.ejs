@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Dogs</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+    
+        li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+    
+        button {
+            cursor: pointer;
+            color: red;
+            border: none;
+            background: none;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Dogs</h1>
+    <a href="/dogs/new">Add a New Dog</a>
+    <ul>
+        <% dogs.forEach(dog => { %>
+            <li>
+                <a href="/dogs/<%= dog._id %>">
+                    <%= dog.name %>
+                </a>
+                <p>Status: <%= dog.isVaccinated ? "✅ Vaccinated" : "⚠️ Needs Vaccination" %></p>
+            </li>
+        <% }) %>
+        
+    </ul>
+    
+    
+</body>
+</html>

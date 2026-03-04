@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dog Information: <%= dog.name %></title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+    
+        button {
+            cursor: pointer;
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dog information for: <%= dog.name %></h1>
+    <p>Breed: <%= dog.breed %></p>
+    <p>Age: <%= dog.age %></p>
+    <p>Vaccinated: <%= dog.isVaccinated ? "Yes" : "No" %></p>
+    
+    <% if (dog.image) { %>
+        <img src="<%= dog.image %>" alt="<%= dog.name %>" style="max-width: 300px; border-radius: 10px;">
+        <% } else { %>
+            <p>No photo available</p>
+            <% } %>
+            <br>
+            <br>
+    <a href="/dogs/<%= dog._id %>/edit">Edit this Dog</a>
+    <br>
+    <br>
+    <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Dog</button>
+    </form>
+ 
+    <br>
+    <br>
+    <a href="/dogs">Back to All Dogs</a>
+</body>
+</html>
